@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { TextInput, SafeAreaView, TouchableOpacity, Text, StyleSheet} from "react-native";
 import { ACCESS_TOKEN, REFRESH_TOKEN, requestWithoutAccesToken } from "../util/api/axios";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import React from "react";
 
 interface Props {
     email: string;
@@ -84,9 +85,6 @@ export default function Login({navigation}) {
 }
 
 const styles = StyleSheet.create({
-    container: {
-
-    },
     input: {
         width: 300,
         height: 50,
