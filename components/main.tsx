@@ -3,6 +3,7 @@ import { Text, ScrollView, TouchableOpacity, SafeAreaView, TextInput, KeyboardAv
 import {Calendar} from "react-native-calendars";
 import { requestWithAccessToken } from "../util/api/axios";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import useAccess from "../util/hooks/useAccess/useAccess";
 
 interface Props {
     todo: string;
@@ -15,6 +16,8 @@ export default function Main ({navigation}) {
     })
 
     const [edi, setEdi] = useState("");
+
+    const access = useAccess();
 
     const tdYear = new Date().getFullYear().toString();
     const tdMonth = (new Date().getMonth() + 1).toString().length === 1 ?
@@ -44,6 +47,10 @@ export default function Main ({navigation}) {
             console.log(err);
         }
     }
+
+    useEffect(() => {
+        access.setState.setAccess(val);
+    }, [val]);
 
     const changeTodo = (e: any) => {
         setState({
@@ -179,9 +186,10 @@ export default function Main ({navigation}) {
                 })
             }
         </ScrollView>
-        
         </KeyboardAvoidingView>
-        
+        <TouchableOpacity onPress={() => {navigation.navigate("user")}}>
+            <Text style={{fontSize: 20}}>goUser</Text>
+        </TouchableOpacity>
         </>
     )
 }

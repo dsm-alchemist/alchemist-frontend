@@ -85,6 +85,9 @@ export default function Login({navigation}) {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        marginTop: 100
+    },
     input: {
         width: 300,
         height: 50,

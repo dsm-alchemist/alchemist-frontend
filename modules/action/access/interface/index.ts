@@ -1,0 +1,1 @@
+export const SET_ACCESS = "ACCESS/SET_ACCESS" as const;
